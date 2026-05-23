@@ -19,6 +19,7 @@ export default function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [isNewVault, setIsNewVault] = useState(false);
   const [vaultExistsOnServer, setVaultExistsOnServer] = useState(false);
+  const [vaultExistsLocally, setVaultExistsLocally] = useState(false);
   const [passwords, setPasswords] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isAdding, setIsAdding] = useState(false);
@@ -49,6 +50,7 @@ export default function App() {
   useEffect(() => {
     const checkVault = async () => {
       const localExists = !!localStorage.getItem(STORAGE_KEY);
+      setVaultExistsLocally(localExists);
       let serverExists = false;
       try {
         const resp = await fetch(`${API_BASE}/vault`);
@@ -60,6 +62,8 @@ export default function App() {
     };
     checkVault();
   }, []);
+
+  const hasExistingVault = vaultExistsLocally || vaultExistsOnServer;
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -401,6 +405,39 @@ export default function App() {
               {isNewVault ? "Inicializar Vault" : (vaultExistsOnServer && !localStorage.getItem(STORAGE_KEY) ? "Sincronizar y Desbloquear" : "Desbloquear")}
             </button>
           </form>
+          
+          <div className="mt-4 flex flex-col gap-2">
+            {!isNewVault && hasExistingVault && (
+              <button
+                type="button"
+                onClick={() => {
+                  if (confirm("¿Estás seguro de que quieres crear un nuevo baúl? Esto sobrescribirá el baúl existente en el servidor y localmente una vez que guardes nuevas contraseñas.")) {
+                    setIsNewVault(true);
+                    setMasterPassword('');
+                    setConfirmPassword('');
+                    setError('');
+                  }
+                }}
+                className="text-xs text-primary-400 hover:text-primary-300 transition-colors text-center w-full"
+              >
+                Crear Nuevo Baúl
+              </button>
+            )}
+            {isNewVault && hasExistingVault && (
+              <button
+                type="button"
+                onClick={() => {
+                  setIsNewVault(false);
+                  setMasterPassword('');
+                  setConfirmPassword('');
+                  setError('');
+                }}
+                className="text-xs text-slate-400 hover:text-slate-300 transition-colors text-center w-full"
+              >
+                Volver a Desbloquear Baúl Existente
+              </button>
+            )}
+          </div>
           <div className="mt-6 pt-6 border-t border-slate-900 flex justify-center">
              <label className="text-[10px] text-slate-500 cursor-pointer hover:text-slate-300 transition-colors flex items-center gap-1">
                <Upload size={10} /> Importar Backup (.updb)
