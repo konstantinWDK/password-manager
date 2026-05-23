@@ -374,7 +374,7 @@ export default function App() {
         <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="glass-card w-full max-w-sm border-slate-800/50">
           <div className="flex items-center gap-2 mb-8 justify-center">
             <Shield className="w-6 h-6 text-primary-500" />
-            <span className="font-bold text-xl tracking-tight">Ultima Parole</span>
+            <span className="font-bold text-xl tracking-tight">Password Manager</span>
           </div>
           <form onSubmit={handleLogin} className="space-y-4">
             <input
@@ -756,7 +756,7 @@ export default function App() {
       <footer className="mt-20 border-t border-slate-900 pt-10 text-center">
         <div className="flex items-center justify-center gap-1.5 text-slate-600 text-[10px] uppercase tracking-tighter">
           <Shield size={10} />
-          <span>Ultima Parole V2 • Zero Knowledge Architecture</span>
+          <span>Password Manager • Zero Knowledge Architecture</span>
         </div>
       </footer>
 
@@ -775,7 +775,7 @@ export default function App() {
                 </button>
               </div>
               
-              <p className="text-xs text-slate-400">Selecciona qué columna de tu CSV corresponde a cada campo de Ultima Parole.</p>
+              <p className="text-xs text-slate-400">Selecciona qué columna de tu CSV corresponde a cada campo de Password Manager.</p>
               
               <div className="space-y-4">
                 {[

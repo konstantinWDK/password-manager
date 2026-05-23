@@ -1,6 +1,6 @@
-# 🔐 Ultima Parole
+# 🔐 Password Manager
 
-**Ultima Parole** es un gestor de contraseñas privado, ligero y seguro, diseñado con una estética SaaS minimalista. Funciona bajo el principio de **Zero-Knowledge**, lo que significa que tus datos nunca salen de tu dispositivo en formato legible, incluso cuando se guardan en el servidor.
+**Password Manager** es un gestor de contraseñas privado, ligero y seguro, diseñado con una estética SaaS minimalista. Funciona bajo el principio de **Zero-Knowledge**, lo que significa que tus datos nunca salen de tu dispositivo en formato legible, incluso cuando se guardan en el servidor.
 
 ## 🛠️ Instalación y Uso
 
@@ -32,7 +32,7 @@ La aplicación web estará disponible en el puerto `3020`. El backend de persist
 
 ## 🛡️ Seguridad: ¿Por qué es totalmente seguro?
 
-Ultima Parole ha sido diseñado con la privacidad como prioridad absoluta. Es **totalmente seguro** por las siguientes razones:
+Password Manager ha sido diseñado con la privacidad como prioridad absoluta. Es **totalmente seguro** por las siguientes razones:
 
 1.  **Arquitectura Zero-Knowledge**: El servidor **nunca** conoce tu contraseña maestra ni puede ver tus credenciales. Todo el proceso de cifrado y descifrado ocurre exclusivamente en tu navegador.
 2.  **Cifrado de Grado Militar (AES-256-GCM/CBC)**: Utilizamos algoritmos estándar de la industria para asegurar que tus datos sean indescifrables sin la clave correcta.

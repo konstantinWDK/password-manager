@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Ultima Parole Deployment Script
-echo "🚀 Iniciando despliegue de Ultima Parole..."
+# Password Manager Deployment Script
+echo "🚀 Iniciando despliegue de Password Manager..."
 
 # Verificar si Docker está corriendo
 if ! sudo docker info > /dev/null 2>&1; then

@@ -1,18 +1,18 @@
 version: '3.8'
 
 services:
-  ultima-parole:
+  password-manager:
     build: .
-    container_name: ultima-parole
+    container_name: password-manager
     ports:
       - "3020:80"
     restart: unless-stopped
     depends_on:
-      - ultima-parole-backend
+      - password-manager-backend
 
-  ultima-parole-backend:
+  password-manager-backend:
     build: ./server
-    container_name: ultima-parole-backend
+    container_name: password-manager-backend
     ports:
       - "3021:3021"
     volumes:
